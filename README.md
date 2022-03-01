@@ -1,5 +1,4 @@
 #week2
-```
 ##1.範例
 
 去https://jsyeh.org/3dcg10
@@ -13,8 +12,8 @@ windows解壓縮
 開Shapes.exe
 
 可以點右鍵自己玩
-```
-```
+
+
 ##2.從git抓檔案
 
 1.去moodle裝 git 
@@ -22,4 +21,4 @@ windows解壓縮
 3.cd desktop
 4.git clone 你的git網址
 5.cd 2022graphicsl (完成後桌面會多一個檔案)
-```
+
