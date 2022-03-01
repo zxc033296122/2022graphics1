@@ -1,7 +1,6 @@
-# 2022graphics1
-##week2
+#week2
 ```
-1.範例
+##1.範例
 
 去https://jsyeh.org/3dcg10
 
@@ -16,7 +15,7 @@ windows解壓縮
 可以點右鍵自己玩
 ```
 ```
-2.從git抓檔案
+##2.從git抓檔案
 
 1.去moodle裝 git 
 2.一路下一步上勾下不勾
