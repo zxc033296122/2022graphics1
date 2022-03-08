@@ -128,16 +128,16 @@ int main(int argc, char** argv)
 }
 ```
 #week3
-##1. 範例 
-```
+## 1. 範例 
+
 去https://jsyeh.org/3dcg10/
 下載 data跟win32
 把data丟在win32
 執行 Transformation.exe
 可以去玩他
-```
-##2 茶壺
-```
+
+## 2 茶壺
+```c++
 #include <GL/glut.h> ///使用GLUT外掛,簡化程式
 void display()
 {
@@ -164,8 +164,8 @@ int main(int argc, char** argv) ///main()主函式 進階版
     glutMainLoop(); ///主要的程式迴圈
 }
 ```
-##3.四個茶壺
-```
+## 3.四個茶壺
+```c++
 #include <GL/glut.h>
 
 
@@ -230,8 +230,8 @@ int main(int argc, char** argv)///主函式 進階版 看不懂
 
 } 
 ```
-##4.讓茶壺跟者我的滑鼠動
-```
+## 4.讓茶壺跟者我的滑鼠動
+```c++
 #include <GL/glut.h>
 float mouseX=0, mouseY=0;
 void myTeapot(float x,float y)
@@ -266,7 +266,8 @@ int main(int argc, char** argv)///主函式 進階版 看不懂
 
     glutMainLoop();
 }
-##5.會幫到你
+## 5.會幫到你
+```c++
 #include <GL/glut.h> ///使用GLUT外掛,簡化程式
 #include <stdio.h>
 float mouseX=0, mouseY=0;
