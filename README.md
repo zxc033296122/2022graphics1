@@ -301,3 +301,111 @@ int main(int argc, char** argv) ///main()主函式 進階版
     glutMainLoop(); ///主要的程式迴圈
 }
 ```
+
+##2.旋轉
+```
+首先訂一個旋轉軸
+旋轉軸先定義點 定義完之後與原點的連線
+訂好後右手比讚方向指向你的旋轉軸
+其餘4指方向為旋轉方向
+```
+##3.實作(旋轉)
+```c++
+#include <GL/glut.h>
+
+void display()
+{
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);///清畫面
+    glPushMatrix();///備分矩陣
+        glRotatef(90,0,0,1);///旋轉
+        glColor3f(1,0,0);///顏色(RGB)
+        glutSolidTeapot(0.3);///就一個神燈
+    glPopMatrix();///還原矩陣
+
+    glutSwapBuffers();///畫好提交
+}
+
+int main(int argc, char** argv)///主函式 進階版 看不懂
+{
+    glutInit( &argc, argv);///把參數給glutInit 初始化
+    glutInitDisplayMode( GLUT_DOUBLE | GLUT_DEPTH );///雙緩衝區+3D深度功能
+    glutCreateWindow("第4周的程式");///開GLUT視窗
+
+    glutDisplayFunc(display);///用來顯示的函式
+
+    glutMainLoop();
+}
+```
+
+
+##4.滑鼠互動
+```c++
+#include <GL/glut.h>
+
+void display()
+{
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);///清畫面
+    glPushMatrix();///備分矩陣
+        glRotatef(90,0,0,1);///旋轉
+        glColor3f(1,0,0);///顏色(RGB)
+        glutSolidTeapot(0.3);///就一個神燈
+    glPopMatrix();///還原矩陣
+
+    glutSwapBuffers();///畫好提交
+}
+
+int main(int argc, char** argv)///主函式 進階版 看不懂
+{
+    glutInit( &argc, argv);///把參數給glutInit 初始化
+    glutInitDisplayMode( GLUT_DOUBLE | GLUT_DEPTH );///雙緩衝區+3D深度功能
+    glutCreateWindow("第4周的程式");///開GLUT視窗
+
+    glutDisplayFunc(display);///用來顯示的函式
+
+    glutMainLoop();
+}
+```
+##5.上面那個不完美
+
+原因:因為上面的只會跟者妳X軸的座標去移動 等於說一開始點的座標也會算進去
+所以要固定起始點與上次的一樣
+```c++
+#include <GL/glut.h>
+float angle=0,oldX=0;
+void display()
+{
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);///清畫面
+    glPushMatrix();///備分矩陣
+        glRotatef(angle,0,0,1);///旋轉
+        glColor3f(1,0,0);///顏色(RGB)
+        glutSolidTeapot(0.3);///就一個神燈
+    glPopMatrix();///還原矩陣
+
+    glutSwapBuffers();///畫好提交
+}
+void motion (int x, int y)
+{
+        angle+=(x-oldX);
+        oldX=x;
+        display();///重劃畫面
+
+}
+void mouse(int button, int state, int x, int y)
+{
+    oldX=x;///定錨
+}
+
+
+int main(int argc, char** argv)///主函式 進階版 看不懂
+{
+    glutInit( &argc, argv);///把參數給glutInit 初始化old
+    glutInitDisplayMode( GLUT_DOUBLE | GLUT_DEPTH );///雙緩衝區+3D深度功能
+    glutCreateWindow("滑鼠可以跟者動");///開GLUT視窗
+    glutMotionFunc(motion);///讓她動
+    glutMouseFunc(mouse);///上周的
+    glutDisplayFunc(display);///用來顯示的函式
+
+    glutMainLoop();
+}
+```
+
